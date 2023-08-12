@@ -7,7 +7,7 @@ from flask_migrate import Migrate
 app = Flask(__name__)
 app.config['BASIC_AUTH_USERNAME'] = 'axiu'
 app.config['BASIC_AUTH_PASSWORD'] = '1437'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'DATABASE_URI'
+app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URI
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
