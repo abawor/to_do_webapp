@@ -52,6 +52,18 @@ def update(todo_id):
     return redirect(url_for("index"))
 
 
+@app.route("/edit/<int:todo_id>", methods=["GET", "POST"])
+@basic_auth.required
+def edit(todo_id):
+    # edit existing item
+    todo = ToDo.query.get(todo_id)
+    if request.method == "POST":
+        todo.title = request.form.get("title")
+        db.session.commit()
+        return redirect(url_for("index"))
+    return render_template("edit.html", todo=todo)
+
+
 @app.route("/delete/<int:todo_id>")
 @basic_auth.required
 def delete(todo_id):
