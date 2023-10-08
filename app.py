@@ -8,8 +8,8 @@ import os
 load_dotenv()
 
 app = Flask(__name__)
-app.config['BASIC_AUTH_USERNAME'] = 'axiu'
-app.config['BASIC_AUTH_PASSWORD'] = '1437'
+app.config['BASIC_AUTH_USERNAME'] = os.environ.get('USER_ID')
+app.config['BASIC_AUTH_PASSWORD'] = os.environ.get('PASSWORD')
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URI')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
@@ -73,5 +73,6 @@ def delete(todo_id):
     db.session.commit()
     return redirect(url_for("index"))
 
-if __name__ == "__main__":
-    app.run(debug=True)
+
+if __name__ == '__main__':
+    app.run(debug=os.environ.get('APP_ENV', 'development') == 'development')
