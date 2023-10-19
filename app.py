@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_basicauth import BasicAuth
 from flask_migrate import Migrate
@@ -27,7 +27,6 @@ class ToDo(db.Model):
 def index():
     # show all todos
     todo_list = ToDo.query.all()
-    print(todo_list)
     return render_template('base.html', todo_list=todo_list)
 
 
@@ -39,7 +38,10 @@ def add():
     new_todo = ToDo(title=title, complete=False)
     db.session.add(new_todo)
     db.session.commit()
-    return redirect(url_for("index"))
+    if os.environ.get('APP_ENV', 'development') == 'development' and title == 'test':
+        return jsonify(id=new_todo.id)
+    else:
+        return redirect(url_for("index"))
 
 
 @app.route("/update/<int:todo_id>")
