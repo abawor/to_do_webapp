@@ -4,38 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToDo App</title>
-
+    <link rel="stylesheet" href="static/style.css">
+    <!--
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
     <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.js"></script>
+    -->
 </head>
 <body>
-    <div style="margin-top: 50px" class="ui container">
+    <div class="app-title">ToDo App</div>
 
-    <h1 class="ui center aligned header">ToDo App</h1>
-
-    <form class="ui form" action="/add" method="post">
-        <div class="field">
-            <label for="title">ToDo Title</label>
-            <input type="text" name="title" placeholder="Enter Todo...">
-            <button class="ui blue button" type="submit">Add</button>
+    <form class="new-task" action="/add" method="post">
+        <div class="new-task-box">
+            <div><label for="title" class="enter-new-todo-title"> Enter New ToDo Title</label></div>
+            <div class="new-title-section">
+                <input class="title-input" type="text" name="title" placeholder="Enter Todo...">
+                <button class="add-btn" type="submit">Add</button>
+            </div>
         </div>
     </form>
 
     {% for todo in todo_list %}
-    <div class="ui segment">
-        <p class="ui big header"> {{ todo.title }}</p>
+    <div class="individual-task">
+        <div class="individual-task-header">
 
-        {% if todo.complete == False %}
-            <span class="ui gray label">Not Complete</span>
-        {% else %}
-            <span class="ui green label">Complete</span>
-        {% endif %}
+            {% if todo.complete == False %}
+                <p class="individual-task-title"> {{ todo.title }}</p>
+                <span class="not-complete-status">Not Complete</span>
+            {% else %}
+                <p class="individual-task-title task-complete"> {{ todo.title }}</p>
+                <span class="complete-status">Complete</span>
+            {% endif %}
+        </div>
 
-        <a class="ui blue button" href="/update/{{ todo.id }}">Update Status</a>
-        <a class="ui gray button" href="{{ url_for('edit', todo_id=todo.id) }}">Edit</a>
-        <a class="ui red button" href="/delete/{{ todo.id }}">Delete</a>
+        <a class="update-btn" href="/update/{{ todo.id }}">Update Status</a>
+        <a class="edit-btn" href="{{ url_for('edit', todo_id=todo.id) }}">Edit</a>
+        <a class="delete-btn" href="/delete/{{ todo.id }}">Delete</a>
     </div>
     {% endfor %}
-    </div>
 </body>
 </html>

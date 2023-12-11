@@ -1,0 +1,160 @@
+:root {
+    --clr-light: #fff;
+    --clr-dark: #333333;
+    --clr-accent: #2283dd;
+
+    --bs: 0.25em 0.25em 0.75em rgba(0,0,0,.25),
+            0.125em 0.125em 0.25em rgba(0,0,0,.15);
+
+    --ts-accent: 0.03em 0.03em 0em var(--clr-accent);
+    --ts: 0.03em 0.03em 0em black;
+}
+
+body {
+    margin: 1em auto;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 800px;
+    color: var(--clr-dark);
+}
+
+@media (max-width: 860px) {
+    body {
+        margin: 1em 2em;
+    }
+}
+
+.app-title {
+    text-align: center;
+    font-size: 3em;
+    font-weight: bold;
+    text-shadow: var(--ts-accent);    
+}
+
+.new-task-box {
+    margin: 3em auto 3em;
+    padding: 1em;
+}
+
+.new-task-box,
+.individual-task {
+    border: 1px solid black;
+    border-radius: 10px;
+    max-width: 800px;
+    width: 90%;
+    box-shadow: var(--bs);
+}
+
+.enter-new-todo-title {
+    font-size: 1.5em;
+    margin: 1em auto;
+    font-weight: bold;
+}
+
+
+.new-title-section {
+    margin: 1em auto 0.5em;
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.title-input,
+.add-btn {
+    font-size: 1em;
+    margin-right: 0.5em;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.title-input {
+    width: 100%;
+    padding: 0.5em;
+}
+
+.add-btn {
+    padding: 0.5em 2em;
+    background: var(--clr-accent);
+    color: var(--clr-light);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.individual-task {
+    margin: 1em auto;
+    padding: 1em 1em 1em;
+    transition: transform 0.5s;
+}
+
+.individual-task:hover {
+    transform: scale(1.025);
+}
+
+.individual-task-header {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 0 0 1.5em;
+    align-items: flex-start;
+}
+
+.individual-task-title {
+    margin: 0 1em 0 0;
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
+.task-complete {
+    color: gray;
+    text-decoration: line-through gray solid 1px;
+}
+
+.complete-status,
+.not-complete-status {
+    padding: 0.5em 1em;
+    background-color: rgba(21, 255, 0, 0.808);
+    border: none;
+    border-radius: 5px;
+    font-size: 0.75em;
+    font-weight: bold;
+    text-wrap: nowrap;
+}
+
+.not-complete-status {
+    background-color: rgb(221, 221, 221);
+}
+
+.update-btn,
+.edit-btn,
+.delete-btn {
+    text-decoration: none;
+    padding: 0.6em 1.2em;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 0.75em;
+    color: black;
+    font-weight: bold;
+    box-shadow: var(--bs);
+    text-shadow: var(--ts);
+    margin-right: 0.25em;
+}
+
+.update-btn {
+    background-color: var(--clr-accent);
+    color: white;
+}
+
+.edit-btn {
+    background-color: rgb(221, 221, 221);
+    text-shadow: 0.03em 0.03em 0em white;
+}
+
+.delete-btn {
+    background-color: red;
+    color: white;
+}
+
+.add-btn:hover,
+.update-btn:hover,
+.edit-btn:hover,
+.delete-btn:hover {
+    opacity: 0.8;
+}
