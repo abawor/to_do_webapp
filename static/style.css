@@ -164,20 +164,19 @@ body {
 /* Edit.html */
 
 .edit-todo-title {
-    font-size: 1.5em;
-    margin: 1em auto;
+    font-size: 2em;
+    margin: 1em auto 0;
     font-weight: bold;
     text-align: center;
 }
 
 .edited-title-input {
     font-size: 1em;
-    margin: 0.5em auto 0 0;
+    margin-top: 0.5em;
     padding: 0.5em;
-    width: 100%;
+    width: 90%;
     border: 1px solid black;
     border-radius: 5px;
-    display: block;
 }
 
 .save-btn {
