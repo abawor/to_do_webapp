@@ -37,7 +37,7 @@ body {
 
 .new-task-box,
 .individual-task {
-    border: 1px solid black;
+    border: 1px solid rgb(97, 97, 97);
     border-radius: 10px;
     max-width: 800px;
     width: 90%;
@@ -124,7 +124,8 @@ body {
 
 .update-btn,
 .edit-btn,
-.delete-btn {
+.delete-btn,
+.save-btn {
     text-decoration: none;
     padding: 0.6em 1.2em;
     border: 1px solid black;
@@ -155,6 +156,30 @@ body {
 .add-btn:hover,
 .update-btn:hover,
 .edit-btn:hover,
-.delete-btn:hover {
+.delete-btn:hover,
+.save-btn:hover {
     opacity: 0.8;
+}
+
+/* Edit.html */
+
+.edit-todo-title {
+    font-size: 1.5em;
+    margin: 1em auto;
+    font-weight: bold;
+    text-align: center;
+}
+
+.edited-title-input {
+    font-size: 1em;
+    margin: 0.5em auto 0 0;
+    padding: 0.5em;
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 5px;
+    display: block;
+}
+
+.save-btn {
+    margin-top: 0.5em;
 }

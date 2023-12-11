@@ -4,21 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToDo App</title>
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.js"></script>
+    <link rel="stylesheet" href="../static/style.css">
 </head>
 <body>
-    <div style="margin-top: 50px" class="ui container">
+    <div class="container">
 
-    <h2 class="ui center aligned header">Edit ToDo Item</h2>
+    <h2 class="edit-todo-title">Edit ToDo Item Title</h2>
 
-    <form class="ui form" method="post">
+    <form class="new-task-box" method="post">
         <div class="field">
-            <label for="title">New title</label>
-            <input type="text" name="title" value="{{ todo.title }}">
-            <br>
-            <button class="ui gray button" type="submit">Save</button>
+            <label for="title" class="individual-task-title">New title</label>
+            <div><input class="edited-title-input" type="text" name="title" value="{{ todo.title }}"></div>
+            <button class="save-btn" type="submit">Save</button>
         </div>
     </form>
     </div>
