@@ -26,7 +26,7 @@ class ToDo(db.Model):
 @app.route('/')
 def index():
     # show all todos
-    todo_list = ToDo.query.order_by(ToDo.title)
+    todo_list = ToDo.query.order_by(ToDo.title).all()
     return render_template('base.html', todo_list=todo_list)
 
 
